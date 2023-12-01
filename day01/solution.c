@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
   
   char temp = 0; // temp variable to save first found char
   char num[2]; // saves first two chars found and concats
-  int first = 1; // varies between one or zero
+  int first = 0; // 
   int second = 0;
   int result = 0; // result to be returned
   do {
@@ -32,15 +32,15 @@ int main(int argc, char *argv[])
       } else {
         result += atoi(num);
       }
-      first = 1;
+      first = 0;
       second = 0;
       printf("first %c and second %c\n", num[0], num[1]);
       continue;
     }
     if (isdigit(ch)) {
-      if (first) {
+      if (!first) {
         num[0] = ch;
-        first = 0;
+        first = 1;
       } else {
         second = 1;
         num[1] = ch;
